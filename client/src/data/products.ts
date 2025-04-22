@@ -8,6 +8,9 @@ export interface Product {
   imageUrl: string;
 }
 
+// Import the local image
+import testImagePath from "@/assets/test-image-1.jpg";
+
 export const products: Product[] = [
   {
     "id": 1,
@@ -16,7 +19,7 @@ export const products: Product[] = [
     "price": 2986,
     "originalPrice": 4977,
     "discountPercentage": 40,
-    "imageUrl": "/test-image-1.jpg"
+    "imageUrl": testImagePath
   },
   {
     "id": 2,
@@ -25,7 +28,7 @@ export const products: Product[] = [
     "price": 4500,
     "originalPrice": 6000,
     "discountPercentage": 25,
-    "imageUrl": "/test-image-1.jpg"
+    "imageUrl": testImagePath
   },
   {
     "id": 3,
@@ -34,7 +37,7 @@ export const products: Product[] = [
     "price": 4500,
     "originalPrice": 6000,
     "discountPercentage": 25,
-    "imageUrl": "/test-image-1.jpg"
+    "imageUrl": testImagePath
   },
   {
     "id": 4,
@@ -43,7 +46,7 @@ export const products: Product[] = [
     "price": 4500,
     "originalPrice": 6000,
     "discountPercentage": 25,
-    "imageUrl": "/test-image-1.jpg"
+    "imageUrl": testImagePath
   },
   {
     "id": 5,
@@ -52,7 +55,7 @@ export const products: Product[] = [
     "price": 4500,
     "originalPrice": 6000,
     "discountPercentage": 25,
-    "imageUrl": "/test-image-1.jpg"
+    "imageUrl": testImagePath
   },
   {
     "id": 6,
@@ -61,7 +64,7 @@ export const products: Product[] = [
     "price": 4500,
     "originalPrice": 6000,
     "discountPercentage": 25,
-    "imageUrl": "/test-image-1.jpg"
+    "imageUrl": testImagePath
   },
   {
     "id": 7,
@@ -70,7 +73,7 @@ export const products: Product[] = [
     "price": 4500,
     "originalPrice": 6000,
     "discountPercentage": 25,
-    "imageUrl": "/test-image-1.jpg"
+    "imageUrl": testImagePath
   },
   {
     "id": 8,
@@ -79,7 +82,7 @@ export const products: Product[] = [
     "price": 4500,
     "originalPrice": 6000,
     "discountPercentage": 25,
-    "imageUrl": "/test-image-1.jpg"
+    "imageUrl": testImagePath
   },
   {
     "id": 9,
@@ -88,7 +91,7 @@ export const products: Product[] = [
     "price": 4500,
     "originalPrice": 6000,
     "discountPercentage": 25,
-    "imageUrl": "/test-image-1.jpg"
+    "imageUrl": testImagePath
   },
   {
     "id": 10,
@@ -97,6 +100,6 @@ export const products: Product[] = [
     "price": 3200,
     "originalPrice": 3200,
     "discountPercentage": 0,
-    "imageUrl": "/test-image-1.jpg"
+    "imageUrl": testImagePath
   }
 ];

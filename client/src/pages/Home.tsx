@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CardStack from "@/components/CardStack";
 import Header from "@/components/Header";
 import SwipeActions from "@/components/SwipeActions";
@@ -9,6 +9,20 @@ export default function Home() {
   const [likes, setLikes] = useState<number[]>([]);
   const [cart, setCart] = useState<number[]>([]);
   const [viewedAll, setViewedAll] = useState(false);
+  const [productImageLoaded, setProductImageLoaded] = useState(false);
+
+  // Check if image is loaded
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/client/public/test-image-1.jpg";
+    img.onload = () => {
+      console.log("Product image loaded successfully");
+      setProductImageLoaded(true);
+    };
+    img.onerror = (err) => {
+      console.error("Error loading product image:", err);
+    };
+  }, []);
 
   const handleSwipe = (productId: number, direction: 'left' | 'right' | 'up') => {
     if (direction === 'right') {

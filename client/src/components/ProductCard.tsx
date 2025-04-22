@@ -39,11 +39,13 @@ export default function ProductCard({
       dragElastic={0.7}
     >
       <div className="relative w-full h-full">
-        <img 
-          className="product-image" 
-          src={imageUrl} 
-          alt={name} 
-        />
+        <div className="w-full h-full overflow-hidden">
+          <img 
+            className="product-image" 
+            src={imageUrl} 
+            alt={name}
+          />
+        </div>
         
         {/* Like badge (hidden by default) */}
         <div className="like-badge hidden">LIKE</div>
