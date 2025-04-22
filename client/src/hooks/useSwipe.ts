@@ -28,14 +28,17 @@ export default function useSwipe({ onSwipe, threshold = 100 }: UseSwipeOptions) 
     setShowCartBadge(false);
 
     // Show appropriate badge based on direction and distance
-    if (absX > 50 && absY < absX) {
+    // Using lower threshold values to show badges sooner
+    const badgeThreshold = 30;
+    
+    if (absX > badgeThreshold && absY < absX) {
       if (x > 0) {
         setShowLikeBadge(true);
       } else {
         setShowDislikeBadge(true);
       }
-    } else if (y < -50) {
-      // Remove absY > absX condition to make upward swipes easier to detect
+    } else if (y < -badgeThreshold) {
+      // Show cart badge with lower threshold to make it more responsive
       setShowCartBadge(true);
     }
     
@@ -54,7 +57,9 @@ export default function useSwipe({ onSwipe, threshold = 100 }: UseSwipeOptions) 
     // Log the drag end values for debugging
     console.log("Drag ended: ", {x, y, absX, absY, threshold});
     
-    if (absX > threshold && absY < absX) {
+    const velocityFactor = 0.5; // This helps adjust how "far" the card has to be moved
+    
+    if (absX > threshold * velocityFactor && absY < absX) {
       // Horizontal swipe
       if (x > 0) {
         console.log("Like Product");
@@ -63,8 +68,8 @@ export default function useSwipe({ onSwipe, threshold = 100 }: UseSwipeOptions) 
         console.log("Dislike Product");
         onSwipe('left');
       }
-    } else if (y < -threshold) {
-      // Upward swipe - removed the absY > absX condition to make upward swipes easier
+    } else if (y < -threshold * velocityFactor) {
+      // Upward swipe - made easier to trigger
       console.log("Add to cart Product");
       onSwipe('up');
     }
