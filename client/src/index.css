@@ -102,13 +102,17 @@
   border-radius: 4px;
   color: white;
   font-weight: bold;
-  padding: 8px 16px;
+  padding: 12px 20px;
   position: absolute;
-  top: 24px;
+  top: 40%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   z-index: 10;
   border: 2px solid white;
+  font-size: 1.2rem;
+  text-align: center;
+  animation: pulse 1s infinite;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .product-image {

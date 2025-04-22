@@ -125,8 +125,9 @@ export default function CardStack({ products, onSwipe, onEmptyStack }: CardStack
   }
 
   // Calculate constraints based on card size
+  // Making the top constraint less restrictive to allow smoother upward swipe
   const constraints = {
-    top: -1000,
+    top: -2000,
     right: 1000,
     bottom: 1000,
     left: -1000

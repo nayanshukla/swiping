@@ -45,7 +45,7 @@ export default function ProductCard({
       variants={{
         exitLeft: { x: -1500, opacity: 0, rotate: -30, transition: { duration: 0.5 } },
         exitRight: { x: 1500, opacity: 0, rotate: 30, transition: { duration: 0.5 } },
-        exitUp: { y: -1500, opacity: 0, transition: { duration: 0.5 } }
+        exitUp: { y: -1500, opacity: 0, scale: 0.8, transition: { duration: 0.5 } }
       }}
     >
       <div className="relative w-full h-full">

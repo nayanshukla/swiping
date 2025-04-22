@@ -34,7 +34,8 @@ export default function useSwipe({ onSwipe, threshold = 100 }: UseSwipeOptions) 
       } else {
         setShowDislikeBadge(true);
       }
-    } else if (y < -50 && absY > absX) {
+    } else if (y < -50) {
+      // Remove absY > absX condition to make upward swipes easier to detect
       setShowCartBadge(true);
     }
     
@@ -50,15 +51,21 @@ export default function useSwipe({ onSwipe, threshold = 100 }: UseSwipeOptions) 
     const absX = Math.abs(x);
     const absY = Math.abs(y);
     
+    // Log the drag end values for debugging
+    console.log("Drag ended: ", {x, y, absX, absY, threshold});
+    
     if (absX > threshold && absY < absX) {
       // Horizontal swipe
       if (x > 0) {
+        console.log("Like Product");
         onSwipe('right');
       } else {
+        console.log("Dislike Product");
         onSwipe('left');
       }
-    } else if (y < -threshold && absY > absX) {
-      // Upward swipe
+    } else if (y < -threshold) {
+      // Upward swipe - removed the absY > absX condition to make upward swipes easier
+      console.log("Add to cart Product");
       onSwipe('up');
     }
     
