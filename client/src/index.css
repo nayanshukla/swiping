@@ -116,6 +116,9 @@
   width: 100%;
   height: 100%;
   border-radius: 1rem;
+  pointer-events: none; /* Ensure images don't interfere with dragging */
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .price-tag {

@@ -27,7 +27,7 @@ export default function ProductCard({
 
   return (
     <motion.div
-      className={`card absolute top-0 left-0 w-full h-full rounded-xl shadow-lg overflow-hidden bg-white`}
+      className={`card absolute top-0 left-0 w-full h-full rounded-xl shadow-lg overflow-hidden bg-white cursor-grab active:cursor-grabbing`}
       style={{
         zIndex: 10 - index,
         ...style,
@@ -37,6 +37,13 @@ export default function ProductCard({
       onDrag={onDrag}
       onDragEnd={onDragEnd}
       dragElastic={0.7}
+      dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
+      whileDrag={{ scale: 1.02 }}
+      variants={{
+        exitLeft: { x: -1500, opacity: 0, rotate: -30, transition: { duration: 0.5 } },
+        exitRight: { x: 1500, opacity: 0, rotate: 30, transition: { duration: 0.5 } },
+        exitUp: { y: -1500, opacity: 0, transition: { duration: 0.5 } }
+      }}
     >
       <div className="relative w-full h-full">
         <div className="w-full h-full overflow-hidden">
@@ -44,6 +51,7 @@ export default function ProductCard({
             className="product-image" 
             src={imageUrl} 
             alt={name}
+            style={{ pointerEvents: "none" }} // Prevent image from capturing pointer events
           />
         </div>
         
@@ -57,7 +65,7 @@ export default function ProductCard({
         <div className="cart-badge hidden">ADD TO CART</div>
         
         {/* Product info overlay */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white pointer-events-none">
           <div className="flex justify-between items-start">
             <div>
               <h2 className="font-semibold text-xl capitalize">{name}</h2>
@@ -68,7 +76,7 @@ export default function ProductCard({
         </div>
         
         {/* Price tag */}
-        <div className="price-tag">
+        <div className="price-tag pointer-events-none">
           <div className="flex flex-col items-end">
             <span className="text-lg font-bold">{formatCurrency(price)}</span>
             {hasDiscount && (

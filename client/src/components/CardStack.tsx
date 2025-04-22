@@ -13,6 +13,7 @@ interface CardStackProps {
 export default function CardStack({ products, onSwipe, onEmptyStack }: CardStackProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [exitDirection, setExitDirection] = useState<'left' | 'right' | 'up' | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
   
   const cardStackRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
@@ -81,17 +82,17 @@ export default function CardStack({ products, onSwipe, onEmptyStack }: CardStack
     };
   }, [currentIndex, onEmptyStack, onSwipe, products, x, y]);
 
-  // Determine exit animation
-  const getExitAnimation = () => {
+  // Determine exit animation variants for Framer Motion
+  const getExitVariant = () => {
     switch (exitDirection) {
       case 'left':
-        return { x: -1500, rotate: -30, transition: { duration: 0.5 } };
+        return 'exitLeft';
       case 'right':
-        return { x: 1500, rotate: 30, transition: { duration: 0.5 } };
+        return 'exitRight';
       case 'up':
-        return { y: -1500, transition: { duration: 0.5 } };
+        return 'exitUp';
       default:
-        return {};
+        return '';
     }
   };
 
@@ -155,10 +156,8 @@ export default function CardStack({ products, onSwipe, onEmptyStack }: CardStack
           };
         }
         
-        // Apply exit animation to current card if swiping
-        const cardStyle = isCurrentCard && exitDirection
-          ? { ...stackStyle, ...getExitAnimation() }
-          : stackStyle;
+        // Create basic stack style - no exit animations in style prop
+        const cardStyle = { ...stackStyle };
         
         return (
           <ProductCard

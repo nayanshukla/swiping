@@ -10,8 +10,14 @@ export default function useSwipe({ onSwipe, threshold = 100 }: UseSwipeOptions) 
   const [showLikeBadge, setShowLikeBadge] = useState(false);
   const [showDislikeBadge, setShowDislikeBadge] = useState(false);
   const [showCartBadge, setShowCartBadge] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
-  const handleDrag = (_: any, info: PanInfo) => {
+  const handleDrag = (event: any, info: PanInfo) => {
+    // Set dragging state to true when drag starts
+    if (!isDragging) {
+      setIsDragging(true);
+    }
+    
     const { x, y } = info.offset;
     const absX = Math.abs(x);
     const absY = Math.abs(y);
@@ -31,9 +37,15 @@ export default function useSwipe({ onSwipe, threshold = 100 }: UseSwipeOptions) 
     } else if (y < -50 && absY > absX) {
       setShowCartBadge(true);
     }
+    
+    // Let the element move freely with the drag
+    console.log("Dragging card: ", {x, y});
   };
 
-  const handleDragEnd = (_: any, info: PanInfo) => {
+  const handleDragEnd = (event: any, info: PanInfo) => {
+    // Reset dragging state
+    setIsDragging(false);
+    
     const { x, y } = info.offset;
     const absX = Math.abs(x);
     const absY = Math.abs(y);
