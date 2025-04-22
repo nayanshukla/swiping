@@ -1,0 +1,174 @@
+# **assignment 5 [C] : web ui engineer -  react capacitor js**
+
+---
+
+Objective:
+
+Develop a mobile application prototype featuring a Tinder-like swiping interface for discovering products. The core task is to implement the interactive card swiping mechanism using React.js and package it as a mobile application using Capacitor.js. Focus on creating a clean, intuitive user interface, smooth animations for the swiping interaction, and well-structured code.
+
+**Core Functionality & Interface:**
+
+The application should present users with a stack of product cards. Users should be able to swipe these cards left or right to indicate preference, similar to popular discovery apps.
+
+**Key Features to Implement:**
+
+1. **Product Card Component:**
+    - Create a reusable React component to display individual product information.
+    - **Required Data Points:** Each card must clearly display:
+        - Product Image
+        - Product Name/Description
+        - Brand Name
+        - Current Price
+        - Original Price (if applicable, e.g., showing a discount)
+        - Discount Percentage (if applicable)
+    - **Design:** Design a clear, visually appealing, and user-friendly layout for this information within the card. While you have creative freedom, ensure readability and a professional look suitable for a mobile e-commerce context.
+2. **Swiping Interaction:**
+    - Implement the core Tinder-like swiping gesture on the top-most product card.
+    - **Swipe Right:** Signifies a 'like' or 'save' action. The card should animate off the screen to the right. Trigger a simple corresponding action (e.g., console log "Liked Product ID: [id]", update component state).
+    - **Swipe Left:** Signifies a 'dislike' or 'pass' action. The card should animate off the screen to the left. Trigger a simple corresponding action (e.g., console log "Passed Product ID: [id]", update component state).
+    - **Swipe Up:** Signifies an “add to cart” action. The card should animate off the screen to the top. Trigger a simple corresponding action (e.g., console log “Add to cart Product ID: [id]”, update component state).
+    - **Visual Feedback:** The card should provide visual feedback during the drag/swipe motion (e.g., slight rotation, movement following the user's finger/cursor).
+    - **Card Stack:** Implement a stacking mechanism where cards are displayed one after another. When one card is swiped away (left or right), the next card in the data set should become visible and interactive.
+3. **Product Data Feed:**
+    - Load product data from a static mock data array (structure provided below) within the application.
+    - Ensure the app cycles through the available products. Define behaviour for when the list ends (e.g., loop, show a message, stop).
+4. **Basic Layout:**
+    - Arrange the product cards in a stack, typically centered on the screen, designed primarily for a mobile viewport.
+    - Consider the overall mobile application structure, but focus effort on the card and swiping mechanism. Full implementation of headers, footers, or navigation menus is **not** required.
+
+**Mock Product Data Structure & Example:**
+
+Use an array of objects with the following structure. Feel free to add more items for testing and use appropriate placeholder images.
+
+**JSON**
+
+`[
+  {
+    "id": 1,
+    "name": "floral print v-neck top",
+    "brand": "shaye",
+    "price": 2986,
+    "originalPrice": 4977,
+    "discountPercentage": 40,
+    "imageUrl": "https://assets.ajio.com/medias/sys_master/root/20240209/UUe4/65c6542805ac7d77bb4c05c5/-473Wx593H-467057476-peach-MODEL.jpg"
+  },
+  {
+    "id": 2,
+    "name": "morgan blouse",
+    "brand": "kazo",
+    "price": 4500,
+    "originalPrice": 6000,
+    "discountPercentage": 25,
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0261/2386/2082/files/KZ01319YELLOWMULTI.jpg?v=1743161024"
+  },`
+
+`{
+    "id": 3,
+    "name": "white typographic printed regular tshirt",
+    "brand": "newme",
+    "price": 4500,
+    "originalPrice": 6000,
+    "discountPercentage": 25,
+    "imageUrl": "https://assets.newme.asia/wp-content/uploads/2025/03/041354491383b268/NM-IN-56-TSH-25-FEB-12787-WHITE_(1).webp"
+  },`
+
+`{
+    "id": 4,
+    "name": "women's grey cotton regular fit blouse",
+    "brand": "cotton world",
+    "price": 4500,
+    "originalPrice": 6000,
+    "discountPercentage": 25,
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0261/2386/2082/files/KZ01319YELLOWMULTI.jpg?v=1743161024"
+  },`
+
+`{
+    "id": 5,
+    "name": "notch neck floral top",
+    "brand": "us polo",
+    "price": 4500,
+    "originalPrice": 6000,
+    "discountPercentage": 25,
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0617/2137/8986/files/1_3af581ca-5668-4c02-8237-7942cc9a9cd3.jpg?v=1713339496"
+  },`
+
+`{
+    "id": 6,
+    "name": "spread collar chambray denim shirt",
+    "brand": "us polo",
+    "price": 4500,
+    "originalPrice": 6000,
+    "discountPercentage": 25,
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0617/2137/8986/files/1_f5b86591-68dd-4cae-b315-66d67d262c87.jpg?v=1713339497"
+  },`
+
+`{
+    "id": 7,
+    "name": "cloudy grey women's denim jacket",
+    "brand": "freakins",
+    "price": 4500,
+    "originalPrice": 6000,
+    "discountPercentage": 25,
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0028/9806/7554/files/MadhuraJUry8167_03d9208c-eb7d-4952-98cf-25c972fcfe21.jpg?v=1732535428"
+  },`
+
+`{
+    "id": 8,
+    "name": "fiorella top ♡",
+    "brand": "girls dont dress for boys",
+    "price": 4500,
+    "originalPrice": 6000,
+    "discountPercentage": 25,
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0796/2391/3771/files/A992E251-0BFC-4426-B131-FF84B9CF4BBC.jpg?v=1729621042"
+  },`
+
+`{
+    "id": 9,
+    "name": "lapel collar drop shoulder cropped denim shirt",
+    "brand": "chemistry india",
+    "price": 4500,
+    "originalPrice": 6000,
+    "discountPercentage": 25,
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0605/1509/0592/files/CJ24AW005_2.jpg?v=1743502223"
+  },
+  {
+    "id": 10,
+    "name": "black floral crop top",
+    "brand": "Casuals Inc.",
+    "price": 3200,
+    "originalPrice": 3200,
+    "discountPercentage": 0,
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0539/7633/4528/products/image_36eb65a4-83bd-4a12-8fac-7d8189f0d564.jpg?v=1621949284"
+  }
+
+]`
+
+**Requirements:**
+
+- Use **React.js** for building the user interface components and logic.
+- Use **Capacitor.js** to wrap the React application into a native mobile project (iOS/Android - demonstration in one emulator/device or web inspector simulating mobile is sufficient).
+- Ensure the UI is **clean, user-friendly, and responsive**, primarily targeting mobile displays.
+- Use T**ailwindcss or styled-components** for styling, ensuring a maintainable and organized structure.
+- Manage the state of the card stack and interactions effectively using React Hooks (useState, useReducer) or context.
+- Implement smooth and visually appealing **animations** for the card swiping and transitions.
+
+**Additional Notes:**
+
+- This task should showcase your ability to build a well-structured, interactive, and polished user interface using React.js within a mobile context provided by Capacitor.js.
+- Demonstrate skills in frontend development: component architecture, state management, handling touch/mouse gestures, animations, and basic UI design sense.
+- Focus on the quality of the core interaction – the swiping should feel fluid and intuitive.
+- While Capacitor is required, deep native plugin integration is not expected. Its primary role here is to demonstrate building a web-based mobile app.
+
+**Deliverables:**
+
+1. An APK file
+2. A **GitHub repository link** containing the complete source code. Ensure the repository is public.
+3. A **Loom recording** (max 5 minutes) briefly explaining your project structure, key code sections (swiping logic, card component, state management), and demonstrating the application running (ideally showing the Capacitor setup or running in a mobile simulator/responsive web view).
+
+**Evaluation Criteria:**
+
+1. **Functionality:** Correct implementation of the left/right swipe actions, card dismissal, data handling, and loading of subsequent cards.
+2. **UI/UX Quality:** Clarity, usability, and aesthetic appeal of the implemented product card design and overall layout. Intuitive user experience for the swiping interaction.
+3. **Code Quality:** Clean, maintainable, well-organized React code. Effective use of components, state management, and modern JavaScript/React practices.
+4. **Interactivity & Animation:** Smoothness, responsiveness, and visual appeal of the swipe gesture and card transitions.
+5. **Capacitor Integration:** Successful setup of the Capacitor project wrapping the React application.
