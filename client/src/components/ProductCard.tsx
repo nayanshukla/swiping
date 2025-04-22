@@ -10,6 +10,7 @@ interface ProductCardProps {
   dragConstraints?: { top: number; right: number; bottom: number; left: number };
   onDrag?: (event: any, info: any) => void;
   onDragEnd?: (event: any, info: any) => void;
+  animate?: string | undefined;
 }
 
 export default function ProductCard({
@@ -20,6 +21,7 @@ export default function ProductCard({
   dragConstraints,
   onDrag,
   onDragEnd,
+  animate
 }: ProductCardProps) {
   const { name, brand, price, originalPrice, discountPercentage, imageUrl } = product;
 
@@ -39,6 +41,7 @@ export default function ProductCard({
       dragElastic={0.7}
       dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
       whileDrag={{ scale: 1.02 }}
+      animate={animate}
       variants={{
         exitLeft: { x: -1500, opacity: 0, rotate: -30, transition: { duration: 0.5 } },
         exitRight: { x: 1500, opacity: 0, rotate: 30, transition: { duration: 0.5 } },

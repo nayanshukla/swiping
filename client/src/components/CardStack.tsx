@@ -169,6 +169,7 @@ export default function CardStack({ products, onSwipe, onEmptyStack }: CardStack
             dragConstraints={constraints}
             onDrag={isCurrentCard ? handleDrag : undefined}
             onDragEnd={isCurrentCard ? handleDragEnd : undefined}
+            animate={isCurrentCard && exitDirection ? getExitVariant() : undefined}
           />
         );
       })}
