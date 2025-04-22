@@ -14,7 +14,7 @@ export default function Home() {
   // Check if image is loaded
   useEffect(() => {
     const img = new Image();
-    img.src = "/client/public/test-image-1.jpg";
+    img.src = "/test-image-1.jpg";
     img.onload = () => {
       console.log("Product image loaded successfully");
       setProductImageLoaded(true);
