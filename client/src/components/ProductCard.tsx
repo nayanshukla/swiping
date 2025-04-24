@@ -54,20 +54,16 @@ export default function ProductCard({
             className="product-image" 
             src={imageUrl} 
             alt={name}
-            style={{ pointerEvents: "none" }} // Prevent image from capturing pointer events
+            style={{ pointerEvents: "none" }} 
           />
         </div>
         
-        {/* Like badge (hidden by default) */}
         <div className="like-badge hidden">LIKE</div>
-        
-        {/* Dislike badge (hidden by default) */}
+
         <div className="dislike-badge hidden">PASS</div>
-        
-        {/* Add to cart badge (hidden by default) */}
+ 
         <div className="cart-badge hidden">ADD TO CART</div>
-        
-        {/* Product info overlay */}
+
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white pointer-events-none">
           <div className="flex justify-between items-start">
             <div>
@@ -77,8 +73,7 @@ export default function ProductCard({
           </div>
           {isActive && <div className="action-hint">Swipe to discover</div>}
         </div>
-        
-        {/* Price tag */}
+
         <div className="price-tag pointer-events-none">
           <div className="flex flex-col items-end">
             <span className="text-lg font-bold">{formatCurrency(price)}</span>
